@@ -1,0 +1,81 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'user/userindex.html' %}
+{% block body %}
+<head><style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#customers tr:nth-child(even){background-color: #000000;}*/
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #000000;
+  color: white;
+}
+</style></head>
+<body>
+<form action="{% url 'certificateadd' %}#about" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <p>&nbsp;</p>
+  <table id="customers">
+    <tr>
+      <th>UPLOADED DOCUMENTS </th>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{i.certificatetype}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table class="table table-hover">
+    <tr>
+      <th>CERTIFICATE</th>
+      <td><label>
+        <select name="select">
+          
+          {% for i in crtfc %}
+          
+          <option>{{ i }}</option>
+          
+          {% endfor %}
+        
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <input type="file" name="file"  />
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="UPLOAD"  class="btn btn-info"/>
+        <input type="submit" name="Submit" value="FINISH" class="btn btn-info"/>
+      </label></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

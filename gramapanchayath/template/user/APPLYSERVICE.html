@@ -1,0 +1,62 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'user/userindex.html' %}
+{% block body %}
+<head><style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#customers tr:nth-child(even){background-color: #000000;}*/
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #000000;
+  color: white;
+}
+</style></head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-hover" id="customers">
+    <tr>
+      <th>SERVICE NAME</th>
+      <td>{{val.servicename}}</td>
+    </tr>
+    <tr>
+      <th>DESCRIPTION</th>
+      <td>{{val.description}}</td>
+    </tr>
+    <tr>
+      <th>DOCUMENTS NEEDED </th>
+      <td>{{val.documents}}</td>
+    </tr>
+    <tr>
+      <th>AMOUNT</th>
+      <td>{{val.amount}}</td>
+<!--      <td>{{sid}}</td>-->
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+        <div align="center"><a href="{% url 'uploadcertificate' id=sid %}#about" class="btn btn-info">APPLY</a></div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->
